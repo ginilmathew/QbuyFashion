@@ -52,20 +52,20 @@ const TabNavigator = ({ navigation }) => {
 
     const onPressHome = useCallback(() => {
         navigation.navigate('HomeNav', {screen:'SwitchHome'})
-    }, [])
+    }, [navigation])
 
     const onPressCart = useCallback(() => {
         navigation.navigate('CartNav', {screen:'Cart'})
-    }, [])
+    }, [navigation])
 
     const onPressOrders = useCallback(() => {
         navigation.navigate('MyOrderNav', {screen:'MyOrders'})
-    }, [])
+    }, [navigation])
 
 
     const onPressAccount = useCallback(() => {
         navigation.navigate('MyAccountNav', {screen:'MyAccount'})
-    }, [])
+    }, [navigation])
 
     const showPanda = useCallback(() => {
         setShowPandas(!showPandas)
