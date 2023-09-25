@@ -1,4 +1,4 @@
-package com.diginest.qbuygreen;
+package com.diginest.qbuyfashion;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
@@ -24,7 +24,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "QBuyGreen";
+    return "qbuyfashion";
   }
 
   /**

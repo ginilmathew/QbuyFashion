@@ -100,9 +100,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.diginest.qbuygreen"
+    namespace "com.diginest.qbuyfashion"
     defaultConfig {
-        applicationId "com.diginest.qbuygreen"
+        applicationId "com.diginest.qbuyfashion"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 4

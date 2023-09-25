@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface QBuyGreenTests : XCTestCase
+@interface qbuyfashionTests : XCTestCase
 
 @end
 
-@implementation QBuyGreenTests
+@implementation qbuyfashionTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

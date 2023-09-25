@@ -39,7 +39,7 @@ end
 pod 'FirebaseCoreInternal', :modular_headers => true
 pod 'GoogleUtilities', :modular_headers => true
 pod 'FirebaseCore', :modular_headers => true
-target 'QBuyGreen' do
+target 'qbuyfashion' do
   config = use_native_modules!
   # use_frameworks! :linkage => :static
 
@@ -62,7 +62,7 @@ target 'QBuyGreen' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'QBuyGreenTests' do
+  target 'qbuyfashionTests' do
     inherit! :complete
     # Pods for testing
   end

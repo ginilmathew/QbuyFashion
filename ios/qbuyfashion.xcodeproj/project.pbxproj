@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* QBuyGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* QBuyGreenTests.m */; };
+		00E356F31AD99517003FC87E /* qbuyfashionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* qbuyfashionTests.m */; };
 		0337373E088E4079B49A625C /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5857DD2769EA425CB26DFCA3 /* Montserrat-ExtraBold.ttf */; };
 		0FDCA2D85FA547E1AC7C9C10 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8D8AE03A848D4A13609DB /* Quicksand-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -20,7 +20,7 @@
 		30BA567C0A8648B293AF1BEF /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84712618ED143F1B0CC5573 /* Poppins-Bold.ttf */; };
 		45918E4067FE48DA96FF41DA /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA1CCD1BFBAC4D9DB6B6F5E8 /* Poppins-LightItalic.ttf */; };
 		48B12910848140C08007F2A7 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 156DCB049B9345CB901BFB2D /* Nunito-Regular.ttf */; };
-		4B061416DBD815DB65C5C89B /* libPods-QBuyGreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1067694BA66074A12EC7D24E /* libPods-QBuyGreen.a */; };
+		4B061416DBD815DB65C5C89B /* libPods-qbuyfashion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1067694BA66074A12EC7D24E /* libPods-qbuyfashion.a */; };
 		5187FD678207454AB3BC4565 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2127F8CB704BAA964C777D /* Poppins-BlackItalic.ttf */; };
 		5215290C0FB042B88288B0CB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDB80FC36381461CB499641E /* Poppins-ExtraBold.ttf */; };
 		5F9C3F225CBE45B2BD3EC991 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EE20D828734ED08DF34B95 /* Montserrat-Bold.ttf */; };
@@ -33,7 +33,7 @@
 		853DE12E911A43A5A15807D7 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 802D947388D640909E58535B /* Montserrat-Light.ttf */; };
 		86A798F33FF549418A792A84 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3062DA3519724B1BB0DC2F0C /* Poppins-Medium.ttf */; };
 		86E4714B1DE34438A5CDE40C /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFC01D032B7646FC9ADF7B1E /* Montserrat-Thin.ttf */; };
-		8BC734662964837E830A2E1D /* libPods-QBuyGreen-QBuyGreenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449BB13F79E3E4C31884C94A /* libPods-QBuyGreen-QBuyGreenTests.a */; };
+		8BC734662964837E830A2E1D /* libPods-qbuyfashion-qbuyfashionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449BB13F79E3E4C31884C94A /* libPods-qbuyfashion-qbuyfashionTests.a */; };
 		9063DDEF8A0D4CB491DCCC6C /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCD4B305C90B40A59D404370 /* Poppins-Thin.ttf */; };
 		AB3EBA1CF0AD4908BFA6D0B4 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42ADB41539184079B3CF5AC6 /* Nunito-ExtraBold.ttf */; };
 		AECBBC30F23F48CB87C2727F /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B31AF0B781064868A258F705 /* Nunito-Light.ttf */; };
@@ -55,56 +55,56 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = QBuyGreen;
+			remoteInfo = "qbuyfashion";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* QBuyGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QBuyGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* qbuyfashionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "qbuyfashionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* QBuyGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QBuyGreenTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* qbuyfashionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "qbuyfashionTests.m"; sourceTree = "<group>"; };
 		098292C9541B4799B06748AB /* Nunito-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Bold.ttf"; path = "../assets/fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		0B28323739534D349D3F06C7 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		1067694BA66074A12EC7D24E /* libPods-QBuyGreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QBuyGreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* QBuyGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QBuyGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = QBuyGreen/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = QBuyGreen/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = QBuyGreen/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = QBuyGreen/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = QBuyGreen/main.m; sourceTree = "<group>"; };
+		1067694BA66074A12EC7D24E /* libPods-qbuyfashion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qbuyfashion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* qbuyfashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qbuyfashion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "qbuyfashion/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "qbuyfashion/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "qbuyfashion/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "qbuyfashion/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "qbuyfashion/main.m"; sourceTree = "<group>"; };
 		156DCB049B9345CB901BFB2D /* Nunito-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Regular.ttf"; path = "../assets/fonts/Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		28EAFC083CDE4C80B2DB8D97 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		3062DA3519724B1BB0DC2F0C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		320333B323B640F99EBC45E1 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		33F19BEA64034E539368C719 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		42ADB41539184079B3CF5AC6 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraBold.ttf"; path = "../assets/fonts/Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
-		42B1D0055FC843319A6CB7CA /* Pods-QBuyGreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QBuyGreen.release.xcconfig"; path = "Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen.release.xcconfig"; sourceTree = "<group>"; };
-		449BB13F79E3E4C31884C94A /* libPods-QBuyGreen-QBuyGreenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QBuyGreen-QBuyGreenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B1D0055FC843319A6CB7CA /* Pods-qbuyfashion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qbuyfashion.release.xcconfig"; path = "Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion.release.xcconfig"; sourceTree = "<group>"; };
+		449BB13F79E3E4C31884C94A /* libPods-qbuyfashion-qbuyfashionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qbuyfashion-qbuyfashionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		504A0AEA968C4DABB11FD125 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		5857DD2769EA425CB26DFCA3 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5C71BCED585949D9B2933E86 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-SemiBold.ttf"; path = "../assets/fonts/Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		66EE20D828734ED08DF34B95 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		6A9B6B932B225A68B92C0533 /* Pods-QBuyGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QBuyGreen.debug.xcconfig"; path = "Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen.debug.xcconfig"; sourceTree = "<group>"; };
+		6A9B6B932B225A68B92C0533 /* Pods-qbuyfashion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qbuyfashion.debug.xcconfig"; path = "Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion.debug.xcconfig"; sourceTree = "<group>"; };
 		6CB8D8AE03A848D4A13609DB /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		70FB3D30956A4D6699544C23 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		73A0EDCDA4D2425EB6DEF325 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		802D947388D640909E58535B /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = QBuyGreen/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "qbuyfashion/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		87E10D482C8F497A8A70695C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		89C6AFFC5AB62E166E5C5E4A /* Pods-QBuyGreen-QBuyGreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QBuyGreen-QBuyGreenTests.debug.xcconfig"; path = "Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests.debug.xcconfig"; sourceTree = "<group>"; };
+		89C6AFFC5AB62E166E5C5E4A /* Pods-qbuyfashion-qbuyfashionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qbuyfashion-qbuyfashionTests.debug.xcconfig"; path = "Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3CB4511C31C4E0A91972862 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		ABE575A6C4BA4BBB905B01A6 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		AC8189CB1E874A19BD4D04AE /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		B31AF0B781064868A258F705 /* Nunito-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Light.ttf"; path = "../assets/fonts/Nunito-Light.ttf"; sourceTree = "<group>"; };
 		C15C0EDDAD7E44459A419C1B /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		C75D2FE32A1F29CD006EC22A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "QBuyGreen/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C75D2FE32A1F29CD006EC22A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "qbuyfashion/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C84712618ED143F1B0CC5573 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		CCD4B305C90B40A59D404370 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		D69BD4F2E3DD410794F4340F /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		DC1C31A236DC45A1977ADDFB /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		DE2127F8CB704BAA964C777D /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		DFC01D032B7646FC9ADF7B1E /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		E5FF323F452450D4E22A4590 /* Pods-QBuyGreen-QBuyGreenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QBuyGreen-QBuyGreenTests.release.xcconfig"; path = "Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5FF323F452450D4E22A4590 /* Pods-qbuyfashion-qbuyfashionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qbuyfashion-qbuyfashionTests.release.xcconfig"; path = "Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA2D23B7825B4A698246BB3C /* Nunito-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Medium.ttf"; path = "../assets/fonts/Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EDB80FC36381461CB499641E /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC734662964837E830A2E1D /* libPods-QBuyGreen-QBuyGreenTests.a in Frameworks */,
+				8BC734662964837E830A2E1D /* libPods-qbuyfashion-qbuyfashionTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,20 +125,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B061416DBD815DB65C5C89B /* libPods-QBuyGreen.a in Frameworks */,
+				4B061416DBD815DB65C5C89B /* libPods-qbuyfashion.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* QBuyGreenTests */ = {
+		00E356EF1AD99517003FC87E /* qbuyfashionTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* QBuyGreenTests.m */,
+				00E356F21AD99517003FC87E /* qbuyfashionTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = QBuyGreenTests;
+			path = "qbuyfashionTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -149,7 +149,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* QBuyGreen */ = {
+		13B07FAE1A68108700A75B9A /* qbuyfashion */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -159,15 +159,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = QBuyGreen;
+			name = "qbuyfashion";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				1067694BA66074A12EC7D24E /* libPods-QBuyGreen.a */,
-				449BB13F79E3E4C31884C94A /* libPods-QBuyGreen-QBuyGreenTests.a */,
+				1067694BA66074A12EC7D24E /* libPods-qbuyfashion.a */,
+				449BB13F79E3E4C31884C94A /* libPods-qbuyfashion-qbuyfashionTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				C75D2FE32A1F29CD006EC22A /* GoogleService-Info.plist */,
-				13B07FAE1A68108700A75B9A /* QBuyGreen */,
+				13B07FAE1A68108700A75B9A /* qbuyfashion */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* QBuyGreenTests */,
+				00E356EF1AD99517003FC87E /* qbuyfashionTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -199,8 +199,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* QBuyGreen.app */,
-				00E356EE1AD99517003FC87E /* QBuyGreenTests.xctest */,
+				13B07F961A680F5B00A75B9A /* qbuyfashion.app */,
+				00E356EE1AD99517003FC87E /* qbuyfashionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,10 +247,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6A9B6B932B225A68B92C0533 /* Pods-QBuyGreen.debug.xcconfig */,
-				42B1D0055FC843319A6CB7CA /* Pods-QBuyGreen.release.xcconfig */,
-				89C6AFFC5AB62E166E5C5E4A /* Pods-QBuyGreen-QBuyGreenTests.debug.xcconfig */,
-				E5FF323F452450D4E22A4590 /* Pods-QBuyGreen-QBuyGreenTests.release.xcconfig */,
+				6A9B6B932B225A68B92C0533 /* Pods-qbuyfashion.debug.xcconfig */,
+				42B1D0055FC843319A6CB7CA /* Pods-qbuyfashion.release.xcconfig */,
+				89C6AFFC5AB62E166E5C5E4A /* Pods-qbuyfashion-qbuyfashionTests.debug.xcconfig */,
+				E5FF323F452450D4E22A4590 /* Pods-qbuyfashion-qbuyfashionTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* QBuyGreenTests */ = {
+		00E356ED1AD99517003FC87E /* qbuyfashionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "QBuyGreenTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "qbuyfashionTests" */;
 			buildPhases = (
 				851B53B600A3E57A1A207D27 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -274,14 +274,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = QBuyGreenTests;
-			productName = QBuyGreenTests;
-			productReference = 00E356EE1AD99517003FC87E /* QBuyGreenTests.xctest */;
+			name = "qbuyfashionTests";
+			productname = "qbuyfashionTests";
+			productReference = 00E356EE1AD99517003FC87E /* qbuyfashionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* QBuyGreen */ = {
+		13B07F861A680F5B00A75B9A /* qbuyfashion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "QBuyGreen" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "qbuyfashion" */;
 			buildPhases = (
 				5526B746DB8A2439FEDBCE34 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -297,9 +297,9 @@
 			);
 			dependencies = (
 			);
-			name = QBuyGreen;
-			productName = QBuyGreen;
-			productReference = 13B07F961A680F5B00A75B9A /* QBuyGreen.app */;
+			name = "qbuyfashion";
+			productName = "qbuyfashion";
+			productReference = 13B07F961A680F5B00A75B9A /* qbuyfashion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "QBuyGreen" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "qbuyfashion" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -332,8 +332,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* QBuyGreen */,
-				00E356ED1AD99517003FC87E /* QBuyGreenTests */,
+				13B07F861A680F5B00A75B9A /* qbuyfashion */,
+				00E356ED1AD99517003FC87E /* qbuyfashionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -413,15 +413,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3A1FAF3D0E06AA5159AC1E64 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -452,7 +452,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QBuyGreen-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-qbuyfashion-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -465,15 +465,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		851B53B600A3E57A1A207D27 /* [CP] Check Pods Manifest.lock */ = {
@@ -491,7 +491,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QBuyGreen-QBuyGreenTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-qbuyfashion-qbuyfashionTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -504,15 +504,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen/Pods-QBuyGreen-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion/Pods-qbuyfashion-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2918BAEB5B9CE34134BE435 /* [CP] Embed Pods Frameworks */ = {
@@ -521,15 +521,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QBuyGreen-QBuyGreenTests/Pods-QBuyGreen-QBuyGreenTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qbuyfashion-qbuyfashionTests/Pods-qbuyfashion-qbuyfashionTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -558,7 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* QBuyGreenTests.m in Sources */,
+				00E356F31AD99517003FC87E /* qbuyfashionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,7 +576,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* QBuyGreen */;
+			target = 13B07F861A680F5B00A75B9A /* qbuyfashion */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -584,14 +584,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6AFFC5AB62E166E5C5E4A /* Pods-QBuyGreen-QBuyGreenTests.debug.xcconfig */;
+			baseConfigurationReference = 89C6AFFC5AB62E166E5C5E4A /* Pods-qbuyfashion-qbuyfashionTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = QBuyGreenTests/Info.plist;
+				INFOPLIST_FILE = "qbuyfashionTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,19 +603,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diginest.qbuygreen;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diginest.qbuyfashion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QBuyGreen.app/QBuyGreen";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/qbuyfashion.app/qbuyfashion";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5FF323F452450D4E22A4590 /* Pods-QBuyGreen-QBuyGreenTests.release.xcconfig */;
+			baseConfigurationReference = E5FF323F452450D4E22A4590 /* Pods-qbuyfashion-qbuyfashionTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = QBuyGreenTests/Info.plist;
+				INFOPLIST_FILE = "qbuyfashionTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,23 +627,24 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diginest.qbuygreen;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diginest.qbuyfashion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QBuyGreen.app/QBuyGreen";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/qbuyfashion.app/qbuyfashion";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A9B6B932B225A68B92C0533 /* Pods-QBuyGreen.debug.xcconfig */;
+			baseConfigurationReference = 6A9B6B932B225A68B92C0533 /* Pods-qbuyfashion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S6VQK3KKH5;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = QBuyGreen/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QBuyGreen;
+				INFOPLIST_FILE = "qbuyfashion/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "qbuyfashion";
+				INFOPLIST_KEY_CFBundleDisplayName = qbuyfashion;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,8 +655,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diginest.qbuygreen;
-				PRODUCT_NAME = QBuyGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diginest.qbuyfashion";
+				PRODUCT_NAME = "qbuyfashion";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -668,14 +669,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42B1D0055FC843319A6CB7CA /* Pods-QBuyGreen.release.xcconfig */;
+			baseConfigurationReference = 42B1D0055FC843319A6CB7CA /* Pods-qbuyfashion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S6VQK3KKH5;
-				INFOPLIST_FILE = QBuyGreen/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QBuyGreen;
+				INFOPLIST_FILE = "qbuyfashion/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "qbuyfashion";
+				INFOPLIST_KEY_CFBundleDisplayName = qbuyfashion;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -686,8 +688,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diginest.qbuygreen;
-				PRODUCT_NAME = QBuyGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diginest.qbuyfashion";
+				PRODUCT_NAME = "qbuyfashion";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -837,7 +839,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "QBuyGreenTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "qbuyfashionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -846,7 +848,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "QBuyGreen" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "qbuyfashion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -855,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "QBuyGreen" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "qbuyfashion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

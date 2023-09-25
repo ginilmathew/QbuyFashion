@@ -1,4 +1,4 @@
-package com.diginest.qbuygreen;
+package com.diginest.qbuyfashion;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
