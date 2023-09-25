@@ -24,7 +24,7 @@ const CategoriesCard = memo(({ item }) => {
 
     const onClick = useCallback(() => {
         navigation.navigate(active === 'panda' ? 'pandaCategory' : 'Category', { name: active === 'panda' ? item?.store_name : item?.name, mode: active, item: item })
-    }, [item])
+    }, [item,navigation])
 
     return (
         <TouchableOpacity

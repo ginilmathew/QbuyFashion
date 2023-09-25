@@ -5,6 +5,7 @@ import QbuyPanda from '../screens/Home';
 import QBuyFashion from '../screens/Home/QBuyFashion';
 import QBuyGreen from '../screens/Home/QBuyGreen';
 import PandaContext from '../contexts/Panda';
+import QbuyfashionHome from '../screens/Home/QBuyFashion/QbuyfashionHome';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ const SwitchHome = () => {
 
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}> 
-            <Stack.Screen name="Home" component={grocery ? QBuyGreen : fashion ? QBuyFashion : QbuyPanda}/>
+            <Stack.Screen name="Home" component={grocery ? QBuyGreen : fashion ? QbuyfashionHome : QbuyPanda}/>
         </Stack.Navigator>
     )
 }

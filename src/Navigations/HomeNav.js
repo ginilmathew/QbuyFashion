@@ -22,6 +22,7 @@ import ViewAllStore from '../screens/Home/QBuyGreen/ViewAllStore';
 import QbuyPanda from '../screens/Home';
 import QBuyGreen from '../screens/Home/QBuyGreen';
 import QBuyFashion from '../screens/Home/QBuyFashion';
+import QbuyfashionHome from '../screens/Home/QBuyFashion/QbuyfashionHome';
 
 
 
@@ -31,7 +32,7 @@ const HomeNav = ({mode, route}) => {
     return (
         <>
         <Stack.Navigator initialRouteName='Home'  screenOptions={{ headerShown: false }}> 
-            <Stack.Screen name="Home" component={mode === "panda" ? QbuyPanda : mode === "green" ? QBuyGreen : QBuyFashion}/>
+            <Stack.Screen name="Home" component={mode === "panda" ? QbuyPanda : mode === "green" ? QBuyGreen : QbuyfashionHome}/>
 
 
             <Stack.Screen name="SingleHotel" component={SingleHotel}/>

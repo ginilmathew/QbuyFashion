@@ -69,7 +69,7 @@ const TabNavigator = ({ navigation }) => {
 
     const showPanda = useCallback(() => {
         setShowPandas(!showPandas)
-    })
+    },[showPandas])
     
     
     

@@ -12,10 +12,11 @@ import Toast from 'react-native-toast-message';
 import AddressProvider from './contexts/Address/AddressContext'
 
 import RouteTest from './RouteText'
+import { AppWithTour } from './Route/green/TabNav'
+import { copilot, walkthroughable, CopilotStep,CopilotProvider } from 'react-native-copilot';
 
 
-
-const App = () => {
+const App = (props) => {
 
 
     if (Platform.OS === 'ios') {
@@ -188,26 +189,28 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <LoadProvider>
-                <AuthProvider>
-                    <AddressProvider>
-                        <PandaProvider>
-                            <CartProvider>
-                       
-                                <RouteTest />
-                                <Toast
-                                    position='bottom'
-                                    bottomOffset={20}
-                                />
-                            </CartProvider>
-                        </PandaProvider>
-                    </AddressProvider>
-                </AuthProvider>
-            </LoadProvider>
+      
+                <LoadProvider>
+                    <AuthProvider>
+                        <AddressProvider>
+                            <PandaProvider>
+                                <CartProvider>
+                                {/* <AppWithTour/> */}
+                                    <RouteTest />
+                                    <Toast
+                                        position='bottom'
+                                        bottomOffset={20}
+                                    />
+                                </CartProvider>
+                            </PandaProvider>
+                        </AddressProvider>
+                    </AuthProvider>
+                </LoadProvider>
+           
         </Provider>
     )
 }
 
-export default App
+export default  App
 
 const styles = StyleSheet.create({})

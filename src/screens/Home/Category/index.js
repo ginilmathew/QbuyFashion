@@ -23,6 +23,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import reactotron from 'reactotron-react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import PandaShopCard from '../Grocery/PandaShopCard'
+import SubcategoryCard from './subcategoryCard'
+import { RefreshControl } from 'react-native-gesture-handler'
 
 
 const Category = ({ route }) => {
@@ -50,10 +52,13 @@ const Category = ({ route }) => {
     const [categories, setCategories] = useState([])
     const [stores, setStore] = useState([])
     const [relatedProduct, setRelatedProduct] = useState([])
+    const [subCategory, setSubCategory] = useState([])
+    const [subcategorySelect, setSubCategorySelect] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [Filter, setFilter] = useState([])
 
 
     const [selected, setSelected] = useState(false)
-
 
 
 
@@ -63,14 +68,15 @@ const Category = ({ route }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-
             getProductBasedCat()
-
         }, [])
     );
 
+
+
     const getProductBasedCat = async () => {
-        loadingContex.setLoading(true)
+        loadingContex.setLoading(true);
+        setLoading(true)
 
         let datas = {
             category_id: item?._id,
@@ -82,20 +88,30 @@ const Category = ({ route }) => {
         await customAxios.post(`customer/product/category-based`, datas)
             .then(async response => {
 
-                let categories = response?.data?.data?.find(home => home?.type === "categories")
-                setAvailabelPdts(categories?.data)
-                let stores = response?.data?.data?.find(home => home?.type === "stores")
-                setStore(stores?.data)
-                let related_product = response?.data?.data?.find(home => home?.type === "related_product")
-                setRelatedProduct(related_product?.data)
-                loadingContex.setLoading(false)
+                let categories = response?.data?.data?.find(home => home?.type === "categories");
+                setAvailabelPdts(categories?.data);
+                let stores = response?.data?.data?.find(home => home?.type === "stores");
+                setStore(stores?.data);
+                let filter = response?.data?.data?.find(home => home?.type === "stores");
+                setFilter(filter?.data)
+                let related_product = response?.data?.data?.find(home => home?.type === "related_product");
+                setRelatedProduct(related_product?.data);
+                let subcategory = response?.data?.data?.find(home => home?.type === "subcategories");
+                setSubCategory(subcategory?.data)
+
+                setLoading(false)
+                loadingContex.setLoading(false);
             })
             .catch(async error => {
                 Toast.show({
                     type: 'error',
                     text1: error
                 });
+                setLoading(false)
                 loadingContex.setLoading(false)
+            }).finally(() => {
+                setLoading(false);
+                loadingContex.setLoading(false);
             })
     }
 
@@ -126,14 +142,24 @@ const Category = ({ route }) => {
 
     let lowercse = item.name.toLowerCase();
 
+    const mainComponents = ({ item, index }) => {
+        return (
+            <View style={{ width: lowercse === "restaurants" ? '50%' : "33.33%" }} key={index}>
+                <PandaShopCard name={lowercse} item={item} key={index} />
+            </View>
+        )
 
-    return (
-        <>
-            <HeaderWithTitle title={item?.name} />
-            <ScrollView
-                style={{ flex: 1, backgroundColor: grocery ? '#F4FFE9' : fashion ? '#FFF5F7' : '#fff', }}
-                showsVerticalScrollIndicator={false}
-            >
+    }
+
+    const HeaderComponents = () => {
+        const selectSubcategorySwitch = (value) => {
+            const selectedObject = Filter?.filter(item => {
+                return item.subCategory_id?.some(subcategory => subcategory?.id === value);
+            });
+            setStore(selectedObject)
+        }
+        return (
+            <View style={{ backgroundColor: grocery ? '#F4FFE9' : fashion ? '#FFF5F7' : '#fff', }}>
                 <View style={{ paddingHorizontal: 10 }}>
                     <FastImage
                         source={{ uri: `${IMG_URL}${item?.image}` }}
@@ -164,24 +190,34 @@ const Category = ({ route }) => {
                             </TouchableOpacity>
                         )}
                     </ScrollView>}
+                {lowercse === "restaurants" && <View style={{ backgroundColor: '#76867314', paddingBottom: 10, }}>
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        style={{ flexDirection: 'row', marginTop: 15 }}
+                    >
+                        {subCategory && subCategory?.map((sub, index) => <SubcategoryCard item={sub} key={index} selectSubcategorySwitch={selectSubcategorySwitch} />)}
+                        {/* {storeDetails?.category_id?.map((cat, index) =>
+                            (<TypeCard item={cat} key={index} storeId={storeId} mymode={'MYMODE'} />)
+                        )} */}
+
+                    </ScrollView>
+                </View>
+                }
+
 
                 {stores && stores?.length > 0 &&
-                    <CommonTexts label={'Available Shops'} mt={15} mb={5} ml={10} fontSize={13} />}
-                {stores && stores?.length > 0 &&
-                    <View style={{ paddingBottom: 10, marginTop: 5 }}>
-                        <View
-                            style={[styles.categoryView, { gap: 5 }]}
-                        >
-                            {stores?.map((item, index) =>
-                                <View style={{ width: lowercse === "restaurants" ? '32%' : "22%" }} key={index}>
-                                    <PandaShopCard name={lowercse} item={item} key={index} />
-                                </View>
-                            )}
-                        </View>
-                    </View>}
+                    <CommonTexts label={'Available Shops'} mt={15} mb={5} ml={10} fontSize={13} />
+                }
+
+            </View>
+        )
+    }
 
 
-
+    const FooterComonents = () => {
+        return (
+            <View style={{ paddingBottom: 80, backgroundColor: grocery ? '#F4FFE9' : fashion ? '#FFF5F7' : '#fff', }}>
                 {name !== 'Restaurant' && mode !== 'grocery' && fashion &&
                     <View style={{ backgroundColor: '#76867314', paddingBottom: 10, marginTop: 5 }}>
                         <ScrollView
@@ -195,6 +231,8 @@ const Category = ({ route }) => {
                         </ScrollView>
                     </View>
                 }
+
+
 
                 {name === 'Restaurant' && <View style={styles.hotelView}>
                     {hotels?.map((item) => (
@@ -240,7 +278,7 @@ const Category = ({ route }) => {
 
                 <>
 
-                    {availablePdts?.length > 0 && <CommonTexts label={'Avalable Products'} mt={15} ml={10} fontSize={13} mb={5} />}
+                    {availablePdts?.length > 0 && <CommonTexts label={'Available Products'} mt={15} ml={10} fontSize={13} mb={5} />}
                     <View style={styles.itemContainer}>
                         {availablePdts?.map((item) => (
                             <CommonItemCard
@@ -248,7 +286,7 @@ const Category = ({ route }) => {
                                 key={item?._id}
                                 width={width / 2.2}
                                 height={250}
-                            // wishlistIcon={fashion ? true : false}
+                                wishlistIcon={fashion ? true : false}
                             />
                         ))}
                     </View>
@@ -293,7 +331,47 @@ const Category = ({ route }) => {
                         </ScrollView>
                     </View>}
 
-            </ScrollView>
+            </View>
+        )
+    }
+
+    return (
+        <>
+            <HeaderWithTitle title={item?.name} />
+
+
+
+            <View style={{ paddingBottom: 10, marginTop: 5 }}>
+
+                <FlatList
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={loading}
+                            onRefresh={getProductBasedCat}
+                        // colors={[Colors.GreenLight]} // for android
+                        // tintColor={Colors.GreenLight} // for ios
+                        />
+                    }
+                    ListHeaderComponent={HeaderComponents}
+                    data={stores}
+                    showsVerticalScrollIndicator={false}
+                    initialNumToRender={8}
+                    // removeClippedSubviews={true}
+                    refreshing={false}
+                    onRefresh={getProductBasedCat}
+                    keyExtractor={item => item._id}
+                    numColumns={lowercse === "restaurants" ? 2 : 3}
+                    contentContainerStyle={{ justifyContent: 'center', gap: 2 }}
+                    renderItem={mainComponents}
+                    ListFooterComponent={FooterComonents}
+                />
+
+            </View>
+
+
+
+
+
         </>
     )
 }
@@ -347,7 +425,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: '3%'
     },
     categoryView: {
-        // justifyContent:'center',
+        // justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         // gap: 6,

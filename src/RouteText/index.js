@@ -28,12 +28,15 @@ import Green from '../Route/green';
 import PandaContext from '../contexts/Panda';
 
 
+
 // import Menu from './Menu';
 
 
 const Stack = createNativeStackNavigator();
 
 const RouteTest = () => {
+
+
 
 
     const userContext = useContext(AuthContext)
@@ -94,56 +97,36 @@ const RouteTest = () => {
 
         }
         else {
-            if (Platform.OS === 'android' && Platform.Version < 23) {
-                getPosition()
-            }
-
             const hasPermission = await PermissionsAndroid.check(
                 PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
 
             );
 
-            if (hasPermission) {
+            if ((Platform.OS === 'android' && Platform.Version < 23) || hasPermission) {
                 getPosition()
-            }
-
-            const status = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-
-            );
-
-            if (status === PermissionsAndroid.RESULTS.GRANTED) {
-                getPosition()
-
-            }
-
-            if (status === PermissionsAndroid.RESULTS.DENIED) {
-                const token = await AsyncStorage.getItem("token");
-
-                if (token) {
-                    getProfile()
-                    getCartDetails()
-                    getAddressList()
+            }else {
+                const status = await PermissionsAndroid.request(
+                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    
+                );
+    
+                if (status === PermissionsAndroid.RESULTS.GRANTED) {
+                    getPosition()
+    
+                }else if(status === PermissionsAndroid.RESULTS.DENIED || status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN ){
+                    const token = await AsyncStorage.getItem("token");
+                    if (token) {
+                        getProfile()
+                        getCartDetails()
+                        getAddressList()
+                    }
+                    setInitialScreen('AddNewLocation');
+                    Toast.show({
+                        type: 'error',
+                        text1: 'Location permission denied by user.'
+                    });
                 }
-                setInitialScreen('AddNewLocation');
-                Toast.show({
-                    type: 'error',
-                    text1: 'Location permission denied by user.'
-                });
-            }
-            else if (status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
-                const token = await AsyncStorage.getItem("token");
 
-                if (token) {
-                    getProfile()
-                    getCartDetails()
-                    getAddressList()
-                }
-                setInitialScreen('AddNewLocation');
-                Toast.show({
-                    type: 'error',
-                    text1: 'Location permission revoked by user.',
-                });
             }
         }
 
@@ -172,7 +155,7 @@ const RouteTest = () => {
     const getPosition = async () => {
         await Geolocation.getCurrentPosition(
             position => {
-
+        
                 getAddressFromCoordinates(position?.coords?.latitude, position.coords?.longitude)
                 setLocation(position?.coords)
                 userContext.setLocation([position?.coords?.latitude, position.coords?.longitude])
@@ -265,18 +248,19 @@ const RouteTest = () => {
             .then(async response => {
                 if (response?.data?.data?.length > 0) {
                     if (response?.data?.data?.length === 1) {
-                        userContext.setLocation([response?.data?.data?.[0]?.area?.latitude, response?.data?.data?.[0]?.area?.longitude])
-                        userContext?.setCurrentAddress(response?.data?.data?.[0]?.area?.address)
+                        if(!userContext.location){
+                            userContext.setLocation([response?.data?.data?.[0]?.area?.latitude, response?.data?.data?.[0]?.area?.longitude])
+                            userContext?.setCurrentAddress(response?.data?.data?.[0]?.area?.address)
+                        }
+                      
 
                     }
                     else {
                         let defaultAdd = response?.data?.data?.find(add => add?.default === true)
-
-
-                        userContext.setLocation([defaultAdd?.area?.latitude, defaultAdd?.area?.longitude])
-                        userContext?.setCurrentAddress(defaultAdd?.area?.address)
-
-
+                        if(!userContext.location){
+                            userContext.setLocation([defaultAdd?.area?.latitude, defaultAdd?.area?.longitude])
+                            userContext?.setCurrentAddress(defaultAdd?.area?.address)
+                        }
                     }
                 }
                 else {
@@ -297,9 +281,7 @@ const RouteTest = () => {
 
     const checkLogin = async () => {
         // await AsyncStorage.clear()
-
         const token = await AsyncStorage.getItem("token");
-
         if (token) {
             getProfile()
             getCartDetails()

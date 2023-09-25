@@ -98,11 +98,13 @@ const Otp = ({ navigation }) => {
 	}
 
 
+	const NavigationToBack = useCallback(()=>{navigation.goBack()},[navigation])
+
 	return (
 		<CommonAuthBg>
 			<ScrollView style={{ flex: 1, paddingHorizontal: 40, }}>
 				<SafeAreaView>
-					<CommonTitle goBack={() => navigation.goBack()} mt={40} />
+					<CommonTitle goBack={NavigationToBack} mt={40} />
 					<CommonTexts
 						label={'Enter the 4 - digit code we sent to your registered mobile number'}
 						mt={40}
@@ -129,7 +131,7 @@ const Otp = ({ navigation }) => {
 
 					<CustomButton
 						onPress={!loader ? handleSubmit(onSubmit) : null}
-						bg='#58D36E'
+						bg={mode ===  "fashion" ?'#FF7190' : "#58D36E"}
 						label={'Confirm'}
 						my={20}
 						width={100}

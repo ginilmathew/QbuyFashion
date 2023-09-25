@@ -221,7 +221,7 @@ const CommonItemCard = memo(({ height, width, item, marginHorizontal, wishlistIc
 
                     </View>}
 
-                    {(data.available && item?.status === "active") && <View style={styles.addContainer}>
+                    {(data?.available && item?.status === "active") && <View style={styles.addContainer}>
                         <CommonAddButton
                             onPress={openBottomSheet}
                         />

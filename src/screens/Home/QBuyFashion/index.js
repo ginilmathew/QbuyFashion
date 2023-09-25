@@ -191,7 +191,7 @@ const QBuyFashion = () => {
     const getHomedata = async (coords) => {
         loadingg.setLoading(true)
 
-        reactotron.log({ env, location })
+ 
 
         let datas = {
             type: "fashion",
@@ -216,68 +216,109 @@ const QBuyFashion = () => {
         navigation.navigate('ProductSearchScreen', { mode: 'fashion' })
     }, [])
 
-    const renderSections = ({ item }) => {
-        if (item?.type === "categories") {
-            return (
-                <CategoryCard data={item?.data} />
-            )
-        }
-        else if (item?.type === "stores") {
-            return (
-                <>
-                    {/* <ImageSlider datas={fashionImg} mt={20} /> */}
-                    {item?.data?.length > 0 && <>
-                        <CommonTexts label={'Available Stores'} ml={15} fontSize={13} mt={20} />
-                        <View style={styles.grossCatView}>
-                            {item?.data?.map((item) => (
-                                <ShopCard key={item?._id} item={item} />
-                            ))}
-                        </View>
-                    </>}
-                    <View style={styles.pickupReferContainer}>
-                        <PickDropAndReferCard
-                            onPress={pickupDropClick}
-                            lotties={require('../../../Lottie/farmer.json')}
-                            label={'Test'}
-                            lottieFlex={0.7}
-                        />
-                        <PickDropAndReferCard
-                            onPress={clickSellItem}
-                            lotties={require('../../../Lottie/dresses.json')}
-                            label={'Sell Your Items'}
-                            lottieFlex={0.5}
-                            ml={8}
-                        />
-                    </View>
+    // const renderSections = ({ item }) => {
+    //     if (item?.type === "categories") {
+    //         return (
+    //             <CategoryCard data={item?.data} />
+    //         )
+    //     }
+    //     else if (item?.type === "stores") {
+    //         return (
+    //             <>
+    //                 {/* <ImageSlider datas={fashionImg} mt={20} /> */}
+    //                 {item?.data?.length > 0 && <>
+    //                     <CommonTexts label={'Available Stores'} ml={15} fontSize={13} mt={20} />
+    //                     <View style={[styles.grossCatView,{justifyContent:'center'}]}>
+    //                         {item?.data?.map((item) => (
+    //                             <ShopCard key={item?._id} item={item} />
+    //                         ))}
+    //                     </View>
+    //                 </>}
+    //                 <View style={styles.pickupReferContainer}>
+    //                     <PickDropAndReferCard
+    //                         onPress={pickupDropClick}
+    //                         lotties={require('../../../Lottie/farmer.json')}
+    //                         label={'Test'}
+    //                         lottieFlex={0.7}
+    //                     />
+    //                     <PickDropAndReferCard
+    //                         onPress={clickSellItem}
+    //                         lotties={require('../../../Lottie/dresses.json')}
+    //                         label={'Sell Your Items'}
+    //                         lottieFlex={0.5}
+    //                         ml={8}
+    //                     />
+    //                 </View>
 
-                    <View style={styles.offerView}>
-                        <Text style={styles.discountText}>{'50% off Upto Rs 125!'}</Text>
-                        <Offer onPress={goToShop} shopName={offer?.hotel} />
-                        <Text style={styles.offerValText}>{'Offer valid till period!'}</Text>
-                    </View>
-                </>
-            )
-        }
-        else if (item?.type === "recentlyviewed" && item?.data?.length > 0) {
-            return (
-                <RecentlyViewed data={item?.data} addToCart={addToCart} />
-            )
-        }
-        else if (item?.type === "available_products") {
-            return (
-                <AvailableProducts data={item?.data} addToCart={addToCart} />
-            )
-        }
-    }
+    //                 <View style={styles.offerView}>
+    //                     <Text style={styles.discountText}>{'50% off Upto Rs 125!'}</Text>
+    //                     <Offer onPress={goToShop} shopName={offer?.hotel} />
+    //                     <Text style={styles.offerValText}>{'Offer valid till period!'}</Text>
+    //                 </View>
+    //             </>
+    //         )
+    //     }
+    //     else if (item?.type === "recentlyviewed" && item?.data?.length > 0) {
+    //         return (
+    //             <View>
+    //                   <RecentlyViewed data={item?.data} addToCart={addToCart} />
+    //             </View>
+              
+    //         )
+    //     }
+    //     else if (item?.type === "available_products") {
+    //         return (
+    //             <AvailableProducts data={item?.data} addToCart={addToCart} />
+    //         )
+    //     }
+    // }
 
-    const headerComponent = useCallback(() => {
+
+    const renderSections = ({item})=>{
         return (
             <>
-                <NameText userName={auth?.userData?.name ? auth?.userData?.name : auth?.userData?.mobile} mt={8} />
-                <SearchBox onPress={onSearch} />
+                  <SearchBox onPress={onSearch} />
+                  <CategoryCard data={item?.data} />
+
             </>
         )
+    }
+
+
+    const ListFooterComponent =()=>{
+        return (
+            <View style={{paddingBottom:100}}>
+
+            </View>
+        )
+    }
+
+    const headerComponent = useCallback(({item}) => {
+        return (
+            <View style={{flex:1}}>
+                <NameText userName={auth?.userData?.name ? auth?.userData?.name : auth?.userData?.mobile} mt={8} />
+                {homeData?.map(home => renderSections(home))}
+              
+            </View>
+        )
     }, [])
+
+    const renderProducts = ({ item, index }) => {
+        return (
+            <View key={index} style={{ flex: 0.5, justifyContent: 'center' }}>
+                <CommonItemCard
+                    item={item}
+                    key={item?._id}
+                    width={width / 2.2}
+                    height={height / 3.6}
+                    mr={5}
+                    ml={8}
+                    mb={15}
+                />
+            </View>
+        )
+    }
+
 
     return (
         <>
@@ -290,6 +331,7 @@ const QBuyFashion = () => {
                 renderItem={renderSections}
                 ListHeaderComponent={headerComponent}
                 contentContainerStyle={styles.container}
+                ListFooterComponent={ListFooterComponent}
             />
             {/* <ScrollView style={styles.container}>
 
@@ -399,7 +441,7 @@ const styles = StyleSheet.create({
     grossCatView: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: 2,
+    
         paddingHorizontal: '2%'
     },
     pickupReferContainer: {

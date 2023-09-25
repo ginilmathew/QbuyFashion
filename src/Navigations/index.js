@@ -8,7 +8,7 @@ import Login from '../screens/auth/Login';
 import Otp from '../screens/auth/Otp';
 import Menu from './Menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//import SplashScreen from '../screens/SplashScreen';
+
 import AuthContext from '../contexts/Auth';
 import customAxios from '../CustomeAxios';
 import LoaderContext from '../contexts/Loader';
@@ -17,6 +17,7 @@ import SplashScreen from 'react-native-splash-screen'
 import LoadingModal from '../Components/LoadingModal';
 import LocationScreen from '../screens/MyAccount/MyAddresses/LocationScreen';
 import AddNewLocation from '../screens/MyAccount/MyAddresses/LocationScreen/AddNewLocation';
+import SplashScreenF from '../screens/SplashScreen';
 
 
 // import Menu from './Menu';
@@ -77,7 +78,7 @@ const Navigation = () => {
         <NavigationContainer ref={navigationRef}>
             <Stack.Navigator initialRouteName={initialScreen} screenOptions={{ headerShown: false }}>
 
-                <Stack.Screen name="SplashScreen" component={SplashScreen} />
+                <Stack.Screen name="SplashScreen" component={SplashScreenF} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Otp" component={Otp} />
 

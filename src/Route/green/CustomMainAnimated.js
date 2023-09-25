@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import * as Animatable from 'react-native-animatable';
+import reactotron from 'reactotron-react-native';
 const CustomMainAnimated = (props) => {
 
 
@@ -23,6 +24,9 @@ const CustomMainAnimated = (props) => {
             ])
         ).start();
     }, [])
+
+
+   
 
 
     return (

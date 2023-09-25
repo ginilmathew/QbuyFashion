@@ -18,6 +18,7 @@ import FashionCategory from '../../screens/FashionCategory';
 import QBuyFashion from '../../screens/Home/QBuyFashion';
 import CategoryScreen from '../../screens/Home/CategoryScreen';
 import StoreScreen from '../../screens/Home/StoreScreen';
+import QbuyfashionHome from '../../screens/Home/QBuyFashion/QbuyfashionHome';
 
 
 
@@ -27,7 +28,7 @@ const HomeNav = () => {
     return (
         <View style={{ marginBottom: 70, flex: 1 }} >
         <Stack.Navigator initialRouteName='Home'  screenOptions={{ headerShown: false }}> 
-            <Stack.Screen name="Home" component={QBuyFashion}/>
+            <Stack.Screen name="Home" component={QbuyfashionHome}/>
 
 
             <Stack.Screen name="SingleHotel" component={SingleHotel}/>
