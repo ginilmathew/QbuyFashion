@@ -25,6 +25,7 @@ import QBuyFashion from '../../screens/Home/QBuyFashion';
 import QbuyPanda from '../../screens/Home';
 import TagScreen from '../../screens/Home/TagScreen';
 import PandaHome from '../../screens/Home/pandaHome';
+import QbuyfashionHome from '../../screens/Home/QBuyFashion/QbuyfashionHome';
 
 
 
@@ -52,7 +53,7 @@ const HomeNav = () => {
                             pandaContext?.active === "panda" ?
                             PandaHome :
                                 pandaContext?.active === "fashion" ?
-                                    QBuyFashion : QBuyGreen
+                                    QbuyfashionHome : QBuyGreen
                     } />
                 <Stack.Screen name="SingleHotel" component={SingleHotel} />
                 <Stack.Screen name="SingleItemScreen" component={SingleItemScreen} />

@@ -2,6 +2,7 @@ import { StyleSheet, TouchableOpacity, useWindowDimensions, View } from 'react-n
 import React, {useContext} from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import CommonAuthHeading from '../screens/auth/CommonAuthHeading'
+import { mode } from '../config/constants'
 
 const CommonTitle = ({ mt, goBack}) => {
 
@@ -13,7 +14,7 @@ const CommonTitle = ({ mt, goBack}) => {
                 onPress={goBack}
                 style={{flex:0.51}}
             > 
-                <AntDesign name='arrowleft' size={35} color='#6DB87A' />
+                <AntDesign name='arrowleft' size={35} color={mode === "fashion" ? '#FF7190' : '#6DB87A'} />
             </TouchableOpacity>}
             <CommonAuthHeading label={'OTP'} />
         </View>

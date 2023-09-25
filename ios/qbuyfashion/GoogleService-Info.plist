@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>678656967091-jfpne3qe0he8ggohjleq3135gjrfbvmg.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.678656967091-jfpne3qe0he8ggohjleq3135gjrfbvmg</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB1Wb9_0O4_r--FRv8XB9b5wcoZHGePkb0</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.diginest.qbuygreen</string>
+	<string>com.diginest.qbuyfashion</string>
 	<key>PROJECT_ID</key>
 	<string>qbuygreen-2185c</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:678656967091:ios:a83eca3997cef5da79cbc6</string>
+	<string>1:678656967091:ios:f40d248a3ab718a479cbc6</string>
 </dict>
 </plist>

@@ -37,12 +37,13 @@ import customAxios from '../../CustomeAxios';
 
 const TabNav = () => {
 
+
     const cartContext = useContext(CartContext)
     const pandaContext = useContext(PandaContext)
     const userContext = useContext(AuthContext)
 
 
-    reactotron.log({ cart: userContext?.userData })
+
     const navigation = useNavigation()
     const [isPending, startTransition] = useTransition();
 
@@ -69,6 +70,8 @@ const TabNav = () => {
             ])
         ).start();
     }, [])
+
+
 
 
 
@@ -369,17 +372,23 @@ const TabNav = () => {
                         <Animated.View style={styles.btnCircleUp}>
                             {showSwitch && <View style={{ position: 'absolute', bottom: 70, flexDirection: 'row', width: 120, justifyContent: 'space-between' }}>
                                 <CustomAnimated
+
                                     onpress={goTogreen}
                                     imageswitch={imageswitch?.green}
                                     colors={['#8BC852', '#9BFF58']}
                                 />
                                 <CustomAnimated
+
                                     onpress={gotoPanda}
                                     imageswitch={imageswitch?.panda}
                                     colors={['#7BE495', '#329D9C']}
                                 />
                             </View>}
+
+                       
+
                             <CustomMainAnimated
+
                                 enableSwitch={enableSwitch}
                                 imageswitch={imageswitch?.fashion}
                                 colors={['#FF41F2', '#FF5757']}
@@ -415,7 +424,12 @@ const TabNav = () => {
     )
 }
 
-export default TabNav
+
+
+
+export default  TabNav
+
+
 
 const styles = StyleSheet.create({
     container: {

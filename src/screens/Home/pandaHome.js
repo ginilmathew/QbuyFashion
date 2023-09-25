@@ -80,6 +80,55 @@ export default function PandaHome({ navigation }) {
     }, [navigation])
 
 
+    const getHomedata = async () => {
+        setisLoading(true)
+        let datas = {
+            type: "panda",
+            // coordinates: env === "dev" ? location : userContext?.location
+            coordinates: userContext?.location
+        }
+        await customAxios.post(`customer/home`, datas)
+            .then(async response => {
+
+                setHomeData(response?.data?.data)
+
+                let tags = response?.data?.data?.find(home => home?.type === "tags")
+                setTags(tags?.data)
+
+                let categories = response?.data?.data?.find(home => home?.type === "categories")
+                setCategory(categories?.data)
+
+
+                let recents = response?.data?.data?.find(home => home?.type === "recentlyviewed")
+                setRecentLists(recents?.data)
+
+                let pandaSuggestions = response?.data?.data?.find(home => home?.type === "suggested_products")
+                setPandaSuggestions(pandaSuggestions?.data)
+
+                let products = response?.data?.data?.find(home => home?.type === "available_products")
+                setProducts(products?.data)
+
+                let sliders = response?.data?.data?.find(home => home?.type === "sliders")
+                setSliders(sliders?.data)
+                setisLoading(false)
+
+                setTimeout(() => {
+                    SplashScreen.hide()
+                }, 500);
+           
+            })
+            .catch(async error => {
+                if (error.includes("Unauthenticated")) {
+                    navigation.navigate("Login")
+                }
+
+                Toast.show({
+                    type: 'error',
+                    text1: error
+                });
+                setisLoading(false)
+            })
+    }
 
     useEffect(() => {
         if (filter && userContext?.location) {
@@ -137,7 +186,7 @@ export default function PandaHome({ navigation }) {
 
     const CarouselCardItem = ({ item, index }) => {
         return (
-            <TouchableOpacity onPress={() => CarouselSelect(item)} style={{ width: '100%', height: '85%', alignItems: 'center', marginTop: 20 }} >
+            <TouchableOpacity key={index} onPress={() => CarouselSelect(item)} style={{ width: '100%', height: '85%', alignItems: 'center', marginTop: 20 }} >
                 <FastImage
                     source={{ uri: `${IMG_URL}${item?.original_image}` }}
                     style={{ height: '100%', width: '95%', borderRadius: 20 }}
@@ -151,7 +200,7 @@ export default function PandaHome({ navigation }) {
     const keyExtractorCategory = (item) => item._id;
     const renderCategory = ({ item, index }) => {
         return (
-            <View style={styles.categoryView}>
+            <View key={index} style={styles.categoryView}>
                 <CategoriesCard item={item} />
             </View>
         )
@@ -178,6 +227,7 @@ export default function PandaHome({ navigation }) {
                 >
                     {tags?.map((item, index) =>
                     (<CommonItemSelect
+
                         item={item} key={index}
                         selected={selected}
                         setSelected={setSelected}
@@ -193,7 +243,7 @@ export default function PandaHome({ navigation }) {
                 <FlatList
                     refreshControl={
                         <RefreshControl
-                            isRefreshing={isloading}
+                            refreshing={isloading}
                             onRefresh={getHomedata}
                         // colors={[Colors.GreenLight]} // for android
                         // tintColor={Colors.GreenLight} // for ios
@@ -228,12 +278,12 @@ export default function PandaHome({ navigation }) {
                         lottieFlex={0.5}
                     />
                 </View>
-                <View style={styles.offerView}>
-                    <Text style={styles.discountText}>{'50% off Upto Rs 125!'}</Text>
-                    <OfferText />
-                    {/* <CountDownComponent/> */}
-                    <Text style={styles.offerValText}>{'Offer valid till period!'}</Text>
-                </View>
+                {/* <View style={styles.offerView}> */}
+                {/* <Text style={styles.discountText}>{'50% off Upto Rs 125!'}</Text> */}
+                {/* <OfferText /> */}
+                {/* <CountDownComponent/> */}
+                {/* <Text style={styles.offerValText}>{'Offer valid till period!'}</Text> */}
+                {/* </View> */}
 
                 <View
                     style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 15, marginBottom: 5, justifyContent: 'space-between', marginRight: 5 }}
@@ -297,55 +347,6 @@ export default function PandaHome({ navigation }) {
         )
     }
 
-    const getHomedata = useCallback(async () => {
-        setisLoading(true)
-        let datas = {
-            type: "panda",
-            // coordinates: env === "dev" ? location : userContext?.location
-            coordinates: userContext?.location
-        }
-        await customAxios.post(`customer/home`, datas)
-            .then(async response => {
-                setisLoading(false)
-                setHomeData(response?.data?.data)
-
-                let tags = response?.data?.data?.find(home => home?.type === "tags")
-                setTags(tags?.data)
-
-                let categories = response?.data?.data?.find(home => home?.type === "categories")
-                setCategory(categories?.data)
-
-
-                let recents = response?.data?.data?.find(home => home?.type === "recentlyviewed")
-                setRecentLists(recents?.data)
-
-                let pandaSuggestions = response?.data?.data?.find(home => home?.type === "suggested_products")
-                setPandaSuggestions(pandaSuggestions?.data)
-
-                let products = response?.data?.data?.find(home => home?.type === "available_products")
-                setProducts(products?.data)
-
-                let sliders = response?.data?.data?.find(home => home?.type === "sliders")
-                setSliders(sliders?.data)
-
-                setisLoading(false)
-                setTimeout(() => {
-                    SplashScreen.hide()
-                }, 500);
-
-            })
-            .catch(async error => {
-                if (error.includes("Unauthenticated")) {
-                    navigation.navigate("Login")
-                }
-
-                Toast.show({
-                    type: 'error',
-                    text1: error
-                });
-                setisLoading(false)
-            })
-    }, [isloading, tags, homeData, category, recentLists, pandaSuggestions, products, sliders, userContext?.location])
 
 
 
@@ -376,8 +377,11 @@ export default function PandaHome({ navigation }) {
         };
     };
 
+
+
     useFocusEffect(
         React.useCallback(() => {
+
             getHomedata()
         }, [userContext?.location])
     );
@@ -401,8 +405,8 @@ export default function PandaHome({ navigation }) {
                     //     <RefreshControl
                     //         isRefreshing={isloading}
                     //         onRefresh={getHomedata}
-                    //         // colors={[Colors.GreenLight]} // for android
-                    //         // tintColor={Colors.GreenLight} // for ios
+                    //     // colors={[Colors.GreenLight]} // for android
+                    //     // tintColor={Colors.GreenLight} // for ios
                     //     />
                     // }
                     maxToRenderPerBatch={8}
@@ -412,21 +416,19 @@ export default function PandaHome({ navigation }) {
                     keyExtractor={keyExtractorProduct}
                     numColumns={2}
                     ListEmptyComponents={ListEmptyComponents}
-
                     contentContainerStyle={{ justifyContent: 'center', gap: 2 }}
                     renderItem={renderProducts}
                     ListFooterComponent={FooterComponent}
-
                 />
-                
+
 
             </View>
             <CommonWhatsappButton
-                 position={'absolute'}
-                    bottom={95}
-                    right={10}
+                position={'absolute'}
+                bottom={85}
+                right={10}
 
-                />
+            />
 
         </View>
     )

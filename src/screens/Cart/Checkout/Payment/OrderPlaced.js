@@ -59,7 +59,7 @@ const OrderPlaced = ({ route, navigation }) => {
 
                 <View style={{ height: 180, }}>
                     <Lottie
-                        source={{ uri: 'https://assets7.lottiefiles.com/packages/lf20_p8xtmag7.json' }}
+                       source={require('../../../../Lottie/dressanimation.json')}
                         autoPlay loop
                     />
                 </View>

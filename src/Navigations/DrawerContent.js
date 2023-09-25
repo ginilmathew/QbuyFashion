@@ -22,23 +22,23 @@ const DrawerContent = ({ navigation }) => {
 
     const onClickDrawer = useCallback(() => {
         navigation.closeDrawer()
-    }, [])
+    }, [navigation])
 
     const clickSellWithus = useCallback(() => {
         navigation.navigate('SellWithUs')
-    }, [])
+    }, [navigation])
 
     const clickWorkWithPanda = useCallback(() => {
         navigation.navigate('WorkWithPanda')
-    }, [])
+    }, [navigation])
 
     const clickCustFeedback = useCallback(() => {
         navigation.navigate('CustomerFeedback')
-    }, [])
+    }, [navigation])
 
     const clickApplyFran = useCallback(() => {
         navigation.navigate('ApplyFranchisee')
-    }, [])
+    }, [navigation])
 
 
     return (

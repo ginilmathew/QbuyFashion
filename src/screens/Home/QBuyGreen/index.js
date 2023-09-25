@@ -37,6 +37,7 @@ import FastImage from 'react-native-fast-image';
 import reactotron from 'reactotron-react-native';
 import SplashScreen from 'react-native-splash-screen'
 import CommonWhatsappButton from '../../../Components/CommonWhatsappButton';
+import { navigate } from '../../../Navigations/RootNavigation';
 //import messaging from '@react-native-firebase/messaging';
 
 
@@ -52,7 +53,9 @@ const QBuyGreen = ({ navigation }) => {
     let userData = userContext?.userData
 
 
-    let loader = loadingg?.loading
+    let loader = loadingg?.loading;
+
+
 
     const [homeData, setHomeData] = useState(null)
     const [availablePdt, setavailablePdt] = useState(null)
@@ -67,9 +70,9 @@ const QBuyGreen = ({ navigation }) => {
 
     }, [homeData])
 
-    useEffect(() => {
-        //requestUserPermission()
-    }, [])
+    // useEffect(() => {
+    //     //requestUserPermission()
+    // }, [])
 
 
     // async function requestUserPermission() {
@@ -148,30 +151,28 @@ const QBuyGreen = ({ navigation }) => {
         await customAxios.post(`customer/home`, datas)
             .then(async response => {
                 setHomeData(response?.data?.data)
-
-
                 loadingg.setLoading(false)
                 setTimeout(() => {
                     SplashScreen.hide()
                 }, 500);
-
+                loadingg.setLoading(false)
             })
             .catch(async error => {
+                loadingg.setLoading(false)
                 if (error.includes("Unauthenticated")) {
                     navigation.navigate("Login")
                 }
-
                 Toast.show({
                     type: 'error',
                     text1: error
                 });
-                loadingg.setLoading(false)
+           
             })
     }
 
     const onSearch = useCallback(() => {
         navigation.navigate('ProductSearchScreen', { mode: 'fashion' })
-    }, [])
+    }, [navigation])
 
 
 
@@ -185,7 +186,7 @@ const QBuyGreen = ({ navigation }) => {
                 navigation.navigate('store', { name: item?.vendor?.store_name, mode: 'store', item: item?.vendor, storeId: item?.vendor?._id })
                 break;
             default:
-            return false;
+                return false;
         }
 
     }
@@ -194,7 +195,7 @@ const QBuyGreen = ({ navigation }) => {
 
     const CarouselCardItem = ({ item, index }) => {
         return (
-            <TouchableOpacity onPress={() => CarouselSelect(item)} style={{ alignItems: 'center', marginTop: 20, width: '100%', height: '85%' }} >
+            <TouchableOpacity key={index} onPress={() => CarouselSelect(item)} style={{ alignItems: 'center', marginTop: 20, width: '100%', height: '85%' }} >
                 <FastImage
                     source={{ uri: `${IMG_URL}${item?.original_image}` }}
                     style={{ height: '100%', width: '95%', borderRadius: 20 }}
@@ -209,7 +210,6 @@ const QBuyGreen = ({ navigation }) => {
 
 
     const renderItems = (item) => {
-
         if (item?.type === 'categories') {
             return (
                 <>
@@ -235,9 +235,12 @@ const QBuyGreen = ({ navigation }) => {
         if (item?.type === 'stores') {
             return (
                 <>
-                    {item?.data?.length > 0 && 
-                    <AvailableStores data={item?.data} />
+
+                    {item?.data?.length > 0 &&
+                        <AvailableStores key={item?._id} data={item?.data} />
                     }
+
+
                     <View style={styles.pickupReferContainer}>
                         <PickDropAndReferCard
                             onPress={ourFarm}
@@ -276,14 +279,14 @@ const QBuyGreen = ({ navigation }) => {
         if (item?.type === 'recentlyviewed') {
             return (
                 <>
-                    <RecentlyViewed data={item?.data} />
+                    <RecentlyViewed key={item?._id} data={item?.data} />
                 </>
             )
         }
         if (item?.type === 'suggested_products') {
             return (
                 <>
-                    <PandaSuggestions data={item?.data} />
+                    <PandaSuggestions key={item?._id} data={item?.data} />
                 </>
             )
         }
@@ -299,8 +302,18 @@ const QBuyGreen = ({ navigation }) => {
     }
 
 
+    const RenderMainComponets = () => {
+        return (
+            <View style={styles.container}>
+                {homeData?.map(home => renderItems(home))}
+                {availablePdt?.length > 0 && <CommonTexts label={'Available Products'} ml={15} mb={10} mt={20} />}
+            </View>
+        )
+    }
 
-    const renderProducts = ({ item, index }) => { 
+
+
+    const renderProducts = ({ item, index }) => {
         return (
             <View key={index} style={{ flex: 0.5, justifyContent: 'center' }}>
                 <CommonItemCard
@@ -315,7 +328,7 @@ const QBuyGreen = ({ navigation }) => {
             </View>
         )
     }
-    
+
 
     return (
         <>
@@ -323,30 +336,33 @@ const QBuyGreen = ({ navigation }) => {
             <View style={styles.container} >
 
                 <NameText userName={userContext?.userData?.name ? userContext?.userData?.name : userContext?.userData?.mobile} mt={8} />
-                <ScrollView
-                    removeClippedSubviews
+
+
+                <FlatList
+                    // refreshControl={
+                    //     <RefreshControl
+                    //         isRefreshing={loadingg?.loading}
+                    //         onRefresh={getHomedata}
+                    //     // colors={[Colors.GreenLight]} // for android
+                    //     // tintColor={Colors.GreenLight} // for ios
+                    //     />
+                    // }
+                    ListHeaderComponent={RenderMainComponets}
+                    data={availablePdt}
+                    keyExtractor={(item, index) => index}
+                    renderItem={renderProducts}
                     showsVerticalScrollIndicator={false}
-                    refreshControl={
-                        <RefreshControl refreshing={loader} onRefresh={getHomedata} />
-                    }>
-                    {homeData?.map(home => renderItems(home))}
-                    {availablePdt?.length > 0 && <CommonTexts label={'Available Products'} ml={15} mb={10} mt={20} />}
-                    <FlatList
-                        data={availablePdt}
-                        keyExtractor={(item, index) => index}
-                        renderItem={renderProducts}
-                        showsVerticalScrollIndicator={false}
-                        initialNumToRender={6}
-                        removeClippedSubviews={true}
-                        windowSize={10}
-                        maxToRenderPerBatch={5}
-                        // refreshing={loader}
-                        // onRefresh={getHomedata}
-                        numColumns={2}
-                        style={{ marginLeft: 5 }}
-                        contentContainerStyle={{ justifyContent: 'center' }}
-                    />
-                </ScrollView>
+                    initialNumToRender={6}
+                    removeClippedSubviews={true}
+                    windowSize={10}
+                    maxToRenderPerBatch={5}
+                    refreshing={loadingg?.loading}
+                    onRefresh={getHomedata}
+                    numColumns={2}
+                    style={{ marginLeft: 5 }}
+                    contentContainerStyle={{ justifyContent: 'center' }}
+                />
+
 
 
                 {/* <FlatList

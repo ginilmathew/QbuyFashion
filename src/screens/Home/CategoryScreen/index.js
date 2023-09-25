@@ -20,7 +20,7 @@ import { useFocusEffect } from '@react-navigation/native'
 const CategoryScreen = ({ route, navigation }) => {
 
     const { width } = useWindowDimensions()
-    reactotron.log('Signle CATEGORY SCREEN')
+  
 
     const { active } = useContext(PandaContext)
     const auth = useContext(AuthContext)
