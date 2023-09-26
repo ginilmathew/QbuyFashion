@@ -14,9 +14,6 @@ import customAxios from '../CustomeAxios';
 import LoaderContext from '../contexts/Loader';
 import Toast from 'react-native-toast-message'
 import SplashScreen from 'react-native-splash-screen'
-import LoadingModal from '../Components/LoadingModal';
-import LocationScreen from '../screens/MyAccount/MyAddresses/LocationScreen';
-import AddNewLocation from '../screens/MyAccount/MyAddresses/LocationScreen/AddNewLocation';
 import SplashScreenF from '../screens/SplashScreen';
 
 

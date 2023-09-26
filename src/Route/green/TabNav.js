@@ -18,29 +18,50 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import LinearGradient from 'react-native-linear-gradient';
 import PandaContext from '../../contexts/Panda';
-import * as Animatable from 'react-native-animatable';
-import QBuyFashion from '../../screens/Home/QBuyFashion';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import QBuyGreen from '../../screens/Home/QBuyGreen';
 import HomeNav from './Home';
 import CartContext from '../../contexts/Cart';
-import reactotron from '../../ReactotronConfig';
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomAnimated from './CustomAnimated';
 import CustomMainAnimated from './CustomMainAnimated';
 import AuthContext from '../../contexts/Auth';
 import customAxios from '../../CustomeAxios';
+import Tooltip from 'react-native-walkthrough-tooltip';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import moment from 'moment';
 
 
 
 const TabNav = () => {
 
+    const [tooltip, setToolTip] = useState(false)
+    const [enableSub, setEnableSub] = useState(false)
+    const [enableThird, setEnableThird] = useState(false)
+
 
     const cartContext = useContext(CartContext)
     const pandaContext = useContext(PandaContext)
     const userContext = useContext(AuthContext)
+
+
+    useEffect(() => {
+        checkFirst()
+    }, [])
+
+
+    const checkFirst = async() => {
+       //await AsyncStorage.removeItem("tooltip")
+        let toolTip = await AsyncStorage.getItem("tooltip");
+
+        if(!toolTip){
+            setToolTip(true)
+            await AsyncStorage.setItem("tooltip", `1`)
+            
+        }
+       
+
+    }
+
 
 
 
@@ -302,6 +323,17 @@ const TabNav = () => {
     }
 
 
+    const enableSubTool = () => {
+        setToolTip(false)
+        setEnableSub(true)
+    }
+
+    const disableSecond = () => {
+        setEnableSub(false)
+        setEnableThird(true)
+    }
+
+
     return (
         <CurvedBottomBar.Navigator
             type="DOWN"
@@ -328,71 +360,177 @@ const TabNav = () => {
                     {pandaContext?.active === "green" &&
                         <Animated.View style={styles.btnCircleUp}>
                             {showSwitch && <View style={{ position: 'absolute', bottom: 70, flexDirection: 'row', width: 120, justifyContent: 'space-between' }}>
-                                <CustomAnimated
-                                    onpress={gotoPanda}
-                                    imageswitch={imageswitch?.panda}
-                                    colors={['#7BE495', '#329D9C']}
-                                />
-                                <CustomAnimated
-                                    onpress={goToFashion}
-                                    imageswitch={imageswitch?.fashion}
-                                    colors={['#FF41F2', '#FF5757']}
-                                />
+                                <Tooltip
+                                    isVisible={enableSub}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color:'#fff' }}>Switch to Panda!</Text>}
+                                    placement="top"
+                                    onClose={disableSecond}
+                                    contentStyle={{
+                                        backgroundColor: '#329D9C'
+                                    }}
+                                >
+                                    <CustomAnimated
+                                        onpress={gotoPanda}
+                                        imageswitch={imageswitch?.panda}
+                                        colors={['#7BE495', '#329D9C']}
+                                    />
+                                </Tooltip>
+                                <Tooltip
+                                    isVisible={enableThird}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color:'#fff' }}>Switch to Fashion!</Text>}
+                                    placement="top"
+                                    onClose={() =>  setEnableThird(false)}
+                                    contentStyle={{
+                                        backgroundColor: '#FF5757'
+                                    }}
+                                >
+                                    <CustomAnimated
+                                        onpress={goToFashion}
+                                        imageswitch={imageswitch?.fashion}
+                                        colors={['#FF41F2', '#FF5757']}
+                                    />
+                                </Tooltip>
                             </View>}
-                            <CustomMainAnimated
-                                enableSwitch={enableSwitch}
-                                imageswitch={imageswitch?.green}
-                                colors={['#8BC852', '#9BFF58']}
-                            />
+                            <Tooltip
+                                isVisible={tooltip}
+                                content={<View>
+                                    <Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color: '#fff' }}>Click here to switch Panda/Fashion!</Text>
+                                </View>}
+                                placement="top"
+                                onClose={enableSubTool}
+                                contentStyle={{
+                                    padding: 10,
+                                    height: 100,
+                                    borderRadius: 5,
+                                    backgroundColor: '#8BC852',
+                                    alignItems:'center',
+                                    justifyContent:'center'
+                                }}
+                            >
+                                <CustomMainAnimated
+                                    enableSwitch={enableSwitch}
+                                    imageswitch={imageswitch?.green}
+                                    colors={['#8BC852', '#9BFF58']}
+                                />
+                            </Tooltip>
                         </Animated.View>}
 
                     {
                         pandaContext?.active === "panda" &&
                         <Animated.View style={styles.btnCircleUp}>
                             {showSwitch && <View style={{ position: 'absolute', bottom: 70, flexDirection: 'row', width: 120, justifyContent: 'space-between' }}>
-                                <CustomAnimated
-                                    onpress={goTogreen}
-                                    imageswitch={imageswitch?.green}
-                                    colors={['#8BC852', '#9BFF58']}
-                                />
-                                <CustomAnimated
-                                    onpress={goToFashion}
-                                    imageswitch={imageswitch?.fashion}
-                                    colors={['#FF41F2', '#FF5757']}
-                                />
+                                <Tooltip
+                                    isVisible={enableSub}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color:'#fff' }}>Switch to Green!</Text>}
+                                    placement="top"
+                                    onClose={disableSecond}
+                                    contentStyle={{
+                                        backgroundColor: '#8BC852'
+                                    }}
+                                >
+                                    <CustomAnimated
+                                        onpress={goTogreen}
+                                        imageswitch={imageswitch?.green}
+                                        colors={['#8BC852', '#9BFF58']}
+                                    />
+                                </Tooltip>
+                                <Tooltip
+                                    isVisible={enableThird}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color:'#fff' }}>Switch to Fashion!</Text>}
+                                    placement="top"
+                                    onClose={() =>  setEnableThird(false)}
+                                    contentStyle={{
+                                        backgroundColor: '#FF5757'
+                                    }}
+                                >
+                                    <CustomAnimated
+                                        onpress={goToFashion}
+                                        imageswitch={imageswitch?.fashion}
+                                        colors={['#FF41F2', '#FF5757']}
+                                    />
+                                </Tooltip>
                             </View>}
-                            <CustomMainAnimated
-                                enableSwitch={enableSwitch}
-                                imageswitch={imageswitch?.panda}
-                                colors={['#7BE495', '#329D9C']}
-                            />
+                            <Tooltip
+                                isVisible={tooltip}
+                                content={<View>
+                                    <Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color: '#fff' }}>Click here to switch Green/Fashion!</Text>
+                                </View>}
+                                placement="top"
+                                onClose={enableSubTool}
+                                contentStyle={{
+                                    padding: 10,
+                                    height: 100,
+                                    borderRadius: 5,
+                                    backgroundColor: '#329D9C',
+                                    alignItems:'center',
+                                    justifyContent:'center'
+                                }}
+                            >
+                                <CustomMainAnimated
+                                    enableSwitch={enableSwitch}
+                                    imageswitch={imageswitch?.panda}
+                                    colors={['#7BE495', '#329D9C']}
+                                />
+                            </Tooltip>
                         </Animated.View>
                     }
                     {pandaContext?.active === "fashion" &&
                         <Animated.View style={styles.btnCircleUp}>
                             {showSwitch && <View style={{ position: 'absolute', bottom: 70, flexDirection: 'row', width: 120, justifyContent: 'space-between' }}>
-                                <CustomAnimated
+                                <Tooltip
+                                    isVisible={enableSub}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color:'#fff' }}>Switch to Green!</Text>}
+                                    placement="top"
+                                    onClose={disableSecond}
+                                    contentStyle={{
+                                        backgroundColor: '#8BC852'
+                                    }}
+                                >
+                                    <CustomAnimated
+                                        onpress={goTogreen}
+                                        imageswitch={imageswitch?.green}
+                                        colors={['#8BC852', '#9BFF58']}
+                                    />
+                                </Tooltip>
+                                <Tooltip
+                                    isVisible={enableThird}
+                                    content={<Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color: '#fff' }}>Switch to Panda!</Text>}
+                                    placement="top"
+                                    onClose={() => setEnableThird(false)}
+                                    contentStyle={{
+                                        backgroundColor: '#329D9C'
+                                    }}
+                                >
+                                    <CustomAnimated
 
-                                    onpress={goTogreen}
-                                    imageswitch={imageswitch?.green}
-                                    colors={['#8BC852', '#9BFF58']}
-                                />
-                                <CustomAnimated
-
-                                    onpress={gotoPanda}
-                                    imageswitch={imageswitch?.panda}
-                                    colors={['#7BE495', '#329D9C']}
-                                />
+                                        onpress={gotoPanda}
+                                        imageswitch={imageswitch?.panda}
+                                        colors={['#7BE495', '#329D9C']}
+                                    />
+                                </Tooltip>
                             </View>}
-
-                       
-
-                            <CustomMainAnimated
-
-                                enableSwitch={enableSwitch}
-                                imageswitch={imageswitch?.fashion}
-                                colors={['#FF41F2', '#FF5757']}
-                            />
+                            <Tooltip
+                                isVisible={tooltip}
+                                content={<View>
+                                    <Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', color: '#fff' }}>Click here to switch Panda/Green!</Text>
+                                </View>}
+                                placement="top"
+                                onClose={enableSubTool}
+                                contentStyle={{
+                                    padding: 10,
+                                    height: 100,
+                                    borderRadius: 5,
+                                    backgroundColor: '#FF6184',
+                                    alignItems:'center',
+                                    justifyContent:'center'
+                                }}
+                            >
+                                <CustomMainAnimated
+                                    enableSwitch={enableSwitch}
+                                    imageswitch={imageswitch?.fashion}
+                                    colors={['#FF41F2', '#FF5757']}
+                                />
+                            </Tooltip>
                         </Animated.View>
                     }
 
@@ -427,7 +565,7 @@ const TabNav = () => {
 
 
 
-export default  TabNav
+export default TabNav
 
 
 
