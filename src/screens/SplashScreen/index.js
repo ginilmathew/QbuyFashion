@@ -4,14 +4,14 @@ import CommonAuthBg from '../auth/CommonAuthBg'
 import { mode } from '../../config/constants'
 
 
-const SplashScreenF = ({ navigation }) => {
+const SplashScreen = ({ navigation }) => {
 
     const { width, height } = useWindowDimensions()
 
     const imageURl = {
         panda: require('../../Images/splashPanda.png'),
-        green: require('../../Images/greensplash.png'),
-        fashion: require('../../Images/fashion.jpg')
+        green: require('../../Images/splash.png'),
+        fashion: require('../../Images/splash.png')
     }
 
     return (
@@ -24,7 +24,7 @@ const SplashScreenF = ({ navigation }) => {
     )
 }
 
-export default SplashScreenF
+export default SplashScreen
 
 const styles = StyleSheet.create({
 

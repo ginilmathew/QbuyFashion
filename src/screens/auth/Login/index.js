@@ -67,9 +67,8 @@ const Login = ({ navigation }) => {
 	const imageURl = {
         panda: require('../../../Images/pandaLogo.png'),
         green: require('../../../Images/loginLogo.png'),
-        fashion: require('../../../Images/FashionloginLogo.png')
+        fashion: require('../../../Images/FashionLogo.png')
     }
-
 
 
 	return (
@@ -104,7 +103,7 @@ const Login = ({ navigation }) => {
 
 				<CustomButton
 					onPress={handleSubmit(onSubmit)}
-					bg={mode ===  "fashion" ?'#FF7190' : "#58D36E"}
+					bg={ mode === 'fashion' ? '#FF7190' : '#58D36E'}
 					label={'Sign In'}
 					mt={20}
 					loading={loader}

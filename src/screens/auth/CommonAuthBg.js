@@ -1,6 +1,5 @@
 import { ImageBackground, StatusBar, StyleSheet } from 'react-native'
 import React from 'react'
-import { env, mode } from '../../config/constants'
 
 const CommonAuthBg = ({children}) => {
     return (
@@ -8,7 +7,7 @@ const CommonAuthBg = ({children}) => {
         <StatusBar backgroundColor={'#000'} />
         <ImageBackground 
             style={styles.container} 
-            source={ mode === "fashion" ? require('../../Images/FashionBg.png') : require('../../Images/authBg.png')}
+            source={require('../../Images/authBg.png')}
         >
             {children}
         </ImageBackground>

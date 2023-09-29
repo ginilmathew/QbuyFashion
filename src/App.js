@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Platform } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Platform, AppState } from 'react-native'
 import React, { useCallback, useEffect } from 'react'
 import Navigation from './Navigations'
 import PandaProvider from './contexts/Panda/PandaContext'
@@ -12,11 +12,39 @@ import Toast from 'react-native-toast-message';
 import AddressProvider from './contexts/Address/AddressContext'
 
 import RouteTest from './RouteText'
-import { AppWithTour } from './Route/green/TabNav'
-import { copilot, walkthroughable, CopilotStep,CopilotProvider } from 'react-native-copilot';
+// import {
+//     QueryClient,
+//     QueryClientProvider,
+//     focusManager
+// } from '@tanstack/react-query'
+
+
+
+
+
+// if (__DEV__) {
+// 	import('react-query-native-devtools').then(({ addPlugin }) => {
+// 		addPlugin({ queryClient });
+// 	});
+// }
+
+// const queryClient = new QueryClient()
 
 
 const App = (props) => {
+
+
+    // function onAppStateChange(status) {
+    //     if (Platform.OS !== 'web') {
+    //       focusManager.setFocused(status === 'active')
+    //     }
+    //   }
+      
+    //   useEffect(() => {
+    //     const subscription = AppState.addEventListener('change', onAppStateChange)
+      
+    //     return () => subscription.remove()
+    //   }, [])
 
 
     if (Platform.OS === 'ios') {
@@ -188,15 +216,17 @@ const App = (props) => {
 
 
     return (
+        // <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-      
+
                 <LoadProvider>
                     <AuthProvider>
                         <AddressProvider>
                             <PandaProvider>
                                 <CartProvider>
                                 {/* <AppWithTour/> */}
-                                    <RouteTest />
+                                    
+                                        <RouteTest />
                                     <Toast
                                         position='bottom'
                                         bottomOffset={20}
@@ -208,6 +238,7 @@ const App = (props) => {
                 </LoadProvider>
            
         </Provider>
+        // </QueryClientProvider>
     )
 }
 

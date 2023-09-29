@@ -8,7 +8,7 @@ import Login from '../screens/auth/Login';
 import Otp from '../screens/auth/Otp';
 //import Menu from './Menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import SplashScreen from '../screens/SplashScreen';
+import SplashScreenF from '../screens/SplashScreen';
 import AuthContext from '../contexts/Auth';
 import CartContext from '../contexts/Cart';
 
@@ -27,7 +27,9 @@ import AddNewLocation from '../screens/MyAccount/MyAddresses/LocationScreen/AddN
 import Green from '../Route/green';
 import PandaContext from '../contexts/Panda';
 
-
+import CommonUpdateModal from '../Components/CommonUpdateModal';
+import DeviceInfo from 'react-native-device-info'
+import SplashScreen from 'react-native-splash-screen';
 
 // import Menu from './Menu';
 
@@ -37,7 +39,7 @@ const Stack = createNativeStackNavigator();
 const RouteTest = () => {
 
 
-
+    const DeviceVersion = DeviceInfo.getVersion()
 
     const userContext = useContext(AuthContext)
     const cartContext = useContext(CartContext)
@@ -45,12 +47,12 @@ const RouteTest = () => {
     const [location, setLocation] = useState(null)
     const { active } = useContext(PandaContext)
     const [user, setUserDetails] = useState(null)
-
+    const [versionUpdate, setversionUpdate] = useState(false);
+    const [forceUpdate, setForceUpdate] = useState(false)
 
     const [initialScreen, setInitialScreen] = useState(null);
 
-
-
+  
 
     useEffect(() => {
         getCurrentLocation()
@@ -104,16 +106,16 @@ const RouteTest = () => {
 
             if ((Platform.OS === 'android' && Platform.Version < 23) || hasPermission) {
                 getPosition()
-            }else {
+            } else {
                 const status = await PermissionsAndroid.request(
                     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    
+
                 );
-    
+
                 if (status === PermissionsAndroid.RESULTS.GRANTED) {
                     getPosition()
-    
-                }else if(status === PermissionsAndroid.RESULTS.DENIED || status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN ){
+
+                } else if (status === PermissionsAndroid.RESULTS.DENIED || status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
                     const token = await AsyncStorage.getItem("token");
                     if (token) {
                         getProfile()
@@ -136,7 +138,7 @@ const RouteTest = () => {
         if (lat && lng) {
             axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lng}&key=AIzaSyBBcghyB0FvhqML5Vjmg3uTwASFdkV8wZY`).then(response => {
                 userContext.setCurrentAddress(response?.data?.results[0]?.formatted_address);
-        
+
                 //setLocation
             })
                 .catch(err => {
@@ -155,7 +157,7 @@ const RouteTest = () => {
     const getPosition = async () => {
         await Geolocation.getCurrentPosition(
             position => {
-        
+
                 getAddressFromCoordinates(position?.coords?.latitude, position.coords?.longitude)
                 setLocation(position?.coords)
                 userContext.setLocation([position?.coords?.latitude, position.coords?.longitude])
@@ -193,6 +195,31 @@ const RouteTest = () => {
     }
 
 
+
+    const VersionManagement = (data) => {
+
+        SplashScreen.hide()
+        if (DeviceVersion * 1 < data?.current_version * 1) {
+            if (DeviceVersion * 1 < data?.current_version * 1 && data?.update) {
+                setversionUpdate(true);
+                setForceUpdate(true);
+            } else if (DeviceVersion * 1 < data?.current_version * 1 && !data?.update) {
+                setversionUpdate(true)
+            }
+        } else {
+            setInitialScreen('green');
+      
+
+        }
+    }
+
+
+    const ColoseUpdateModal = useCallback(() => {
+        setversionUpdate(false);
+        setInitialScreen('green');
+    }, [versionUpdate])
+
+
     const getProfile = useCallback(async () => {
         loadingContext.setLoading(true);
         await customAxios.get(`customer/customer-profile`)
@@ -200,7 +227,8 @@ const RouteTest = () => {
                 loadingContext.setLoading(false);
                 userContext.setUserData(response?.data?.data);
                 setUserDetails(response?.data?.data)
-                setInitialScreen('green');
+                VersionManagement(response?.data?.data)
+                // setInitialScreen('green');
             })
             .catch(async error => {
                 Toast.show({
@@ -248,16 +276,16 @@ const RouteTest = () => {
             .then(async response => {
                 if (response?.data?.data?.length > 0) {
                     if (response?.data?.data?.length === 1) {
-                        if(!userContext.location){
+                        if (!userContext.location) {
                             userContext.setLocation([response?.data?.data?.[0]?.area?.latitude, response?.data?.data?.[0]?.area?.longitude])
                             userContext?.setCurrentAddress(response?.data?.data?.[0]?.area?.address)
                         }
-                      
+
 
                     }
                     else {
                         let defaultAdd = response?.data?.data?.find(add => add?.default === true)
-                        if(!userContext.location){
+                        if (!userContext.location) {
                             userContext.setLocation([defaultAdd?.area?.latitude, defaultAdd?.area?.longitude])
                             userContext?.setCurrentAddress(defaultAdd?.area?.address)
                         }
@@ -320,8 +348,13 @@ const RouteTest = () => {
     }, []);
 
     if (!initialScreen) {
+        SplashScreen.hide()
         return (
-            <SplashScreen />
+            <>
+                <SplashScreenF />
+                {versionUpdate && <CommonUpdateModal isopen={versionUpdate} CloseModal={ColoseUpdateModal} ForceUpdate={forceUpdate} />}
+            </>
+
         )
     }
 
@@ -332,8 +365,8 @@ const RouteTest = () => {
             <NavigationContainer ref={navigationRef}>
                 <Stack.Navigator initialRouteName={initialScreen} screenOptions={{ headerShown: false }}>
 
-                    <Stack.Screen name="SplashScreen" component={SplashScreen} />
-                    <Stack.Screen name="Login" component={Login}/>
+                    {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
+                    <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="Otp" component={Otp} />
                     <Stack.Screen name="LocationScreen" component={LocationScreen} options={{ title: 'home' }} />
                     <Stack.Screen name="AddNewLocation" component={AddNewLocation} />

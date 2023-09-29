@@ -55,7 +55,7 @@ const QBuyGreen = ({ navigation }) => {
 
     let loader = loadingg?.loading;
 
-
+    reactotron.log({loader})
 
     const [homeData, setHomeData] = useState(null)
     const [availablePdt, setavailablePdt] = useState(null)

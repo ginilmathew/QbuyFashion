@@ -8,7 +8,7 @@ import Login from '../screens/auth/Login';
 import Otp from '../screens/auth/Otp';
 //import Menu from './Menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import SplashScreen from '../screens/SplashScreen';
+import SplashScreenP from '../screens/SplashScreen';
 import AuthContext from '../contexts/Auth';
 import CartContext from '../contexts/Cart';
 import Panda from './panda';
@@ -25,7 +25,9 @@ import reactotron from '../ReactotronConfig';
 import LoadingModal from '../Components/LoadingModal';
 import LocationScreen from '../screens/MyAccount/MyAddresses/LocationScreen';
 import AddNewLocation from '../screens/MyAccount/MyAddresses/LocationScreen/AddNewLocation';
-
+import CommonUpdateModal from '../Components/CommonUpdateModal';
+import DeviceInfo from 'react-native-device-info'
+import SplashScreen from 'react-native-splash-screen';
 
 // import Menu from './Menu';
 
@@ -34,21 +36,24 @@ const Stack = createNativeStackNavigator();
 
 const Route = () => {
 
+    const DeviceVersion = DeviceInfo.getVersion()
+
 
     const userContext = useContext(AuthContext)
     const cartContext = useContext(CartContext)
     const loadingContext = useContext(LoaderContext)
     const [location, setLocation] = useState(null)
-
+    const [versionUpdate,setversionUpdate]=useState(false);
+    const [forceUpdate,setForceUpdate]=useState(false)
 
 
     const [initialScreen, setInitialScreen] = useState(null)
-
+    reactotron.log({DeviceVersion})
+    reactotron.log({versionUpdate})
+    reactotron.log({forceUpdate})
 
     useEffect(() => {
         getCurrentLocation()
-
-    
     }, [])
 
     // useEffect(() => {
@@ -198,13 +203,38 @@ const Route = () => {
     }
 
 
+
+    const VersionManagement = (data)=>{
+        reactotron.log('API CSLLEEEEEE')
+        SplashScreen.hide()
+          if(DeviceVersion * 1 < data?.current_version * 1){
+                 if(DeviceVersion * 1 < data?.current_version * 1 && data?.update){
+                    setversionUpdate(true);
+                    setForceUpdate(true);
+                 }else if(DeviceVersion * 1 < data?.current_version * 1 && !data?.update){
+                    setversionUpdate(true)
+                 }
+          }else{
+            setInitialScreen(mode);
+          }
+       }
+    
+    
+       const ColoseUpdateModal = useCallback(()=>{
+        setversionUpdate(false);
+        setInitialScreen(mode);
+       },[versionUpdate])
+    
+
+
     const getProfile = useCallback(async () => {
         loadingContext.setLoading(true);
         await customAxios.get(`customer/customer-profile`)
             .then(async response => {
                 loadingContext.setLoading(false);
                 userContext.setUserData(response?.data?.data)
-                setInitialScreen(mode);
+                VersionManagement(response?.data?.data)
+                // setInitialScreen(mode);
             })
             .catch(async error => {
                 Toast.show({
@@ -314,8 +344,13 @@ const Route = () => {
     }, []);
 
     if (!initialScreen) {
+        SplashScreen.hide()
         return (
-            <SplashScreen />
+            <>
+            <SplashScreenP />
+            {versionUpdate &&  <CommonUpdateModal isopen={versionUpdate} CloseModal={ColoseUpdateModal} ForceUpdate={forceUpdate} /> }
+            </>
+            
         )
     }
 
@@ -326,7 +361,7 @@ const Route = () => {
             <NavigationContainer ref={navigationRef}>
                 <Stack.Navigator initialRouteName={initialScreen} screenOptions={{ headerShown: false }}>
 
-                    <Stack.Screen name="SplashScreen" component={SplashScreen} />
+                    {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="Otp" component={Otp} />
                     <Stack.Screen name="LocationScreen" component={LocationScreen} options={{ title: 'home' }} />

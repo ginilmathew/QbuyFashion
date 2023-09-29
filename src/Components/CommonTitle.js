@@ -14,7 +14,7 @@ const CommonTitle = ({ mt, goBack}) => {
                 onPress={goBack}
                 style={{flex:0.51}}
             > 
-                <AntDesign name='arrowleft' size={35} color={mode === "fashion" ? '#FF7190' : '#6DB87A'} />
+                <AntDesign name='arrowleft' size={35} color={ mode === 'fashion' ? '#FF7190' : '#58D36E'} />
             </TouchableOpacity>}
             <CommonAuthHeading label={'OTP'} />
         </View>

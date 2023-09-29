@@ -114,7 +114,7 @@ export default function PandaHome({ navigation }) {
 
                 setTimeout(() => {
                     SplashScreen.hide()
-                }, 500);
+                }, 100);
            
             })
             .catch(async error => {
